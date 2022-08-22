@@ -12,6 +12,8 @@ public class Enemy1Controller : MonoBehaviour
     /// <summary>ターゲットのタグ名</summary>
     [Tooltip("ターゲットのタグ名")]
     [SerializeField] string _targetTag = default;
+    [Tooltip("蛇行")]
+    [SerializeField] bool _isMoveWave = false;
     Rigidbody2D _rb;
     void Start()
     {
@@ -22,6 +24,10 @@ public class Enemy1Controller : MonoBehaviour
     void Update()
     {
         _rb.velocity = (_targetTransform.position - transform.position).normalized * _moveSpeed;
+        if (_isMoveWave)
+        {
+
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -33,6 +39,7 @@ public class Enemy1Controller : MonoBehaviour
         else if (collision.gameObject.CompareTag("Bullet"))
         {
             Destroy(this.gameObject);
+            EnemyGeneratorController._currentEnemyCount--;
         }
     }
 }
