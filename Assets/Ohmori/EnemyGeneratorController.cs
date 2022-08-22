@@ -8,13 +8,16 @@ public class EnemyGeneratorController : MonoBehaviour
     [Tooltip("出現させるTransform")]
     [SerializeField] List<Transform> _generateMuzzles = new List<Transform>();
     /// <summary>Waveで出現させるPrefab</summary>
-    [Tooltip("0からWave毎に出現させる")]
-    [SerializeField] List<GameObject> _waveEnemies = new List<GameObject>();
+    [Tooltip("Muzzle1で0からWave毎に出現させる")]
+    [SerializeField] List<GameObject> _waveEnemies1 = new List<GameObject>();
+    [Tooltip("Muzzle2で0からWave毎に出現させる")]
+    [SerializeField] List<GameObject> _waveEnemies2 = new List<GameObject>();
+    [Tooltip("Muzzle3で0からWave毎に出現させる")]
+    [SerializeField] List<GameObject> _waveEnemies3 = new List<GameObject>();
+    [Tooltip("Muzzle4で0からWave毎に出現させる")]
+    [SerializeField] List<GameObject> _waveEnemies4 = new List<GameObject>();
     [Tooltip("ボスのプレハブ")]
     [SerializeField] GameObject _bossPrefab;
-    /// <summary>ボスを登場させるWave数</summary>
-    [Tooltip("ボスを登場させるWave数")]
-    [SerializeField] int _bossWaveCount = default;
     [Tooltip("Waveの間隔")]
     [SerializeField] float _distance = default;
     int _waveCount = default;
@@ -27,14 +30,17 @@ public class EnemyGeneratorController : MonoBehaviour
     void Update()
     {
         _timer += Time.deltaTime;
-        if (_waveCount >= 0 && _waveCount < _bossWaveCount && _timer > _distance)
+        if (_waveCount >= 0 && _waveCount < _waveEnemies1.Count && _timer > _distance)
         {
-            foreach (var Spown in _generateMuzzles)
-            {
-                GameObject go = Instantiate(_waveEnemies[_waveCount]);
-                go.transform.position = Spown.position;
-            }
-            _distance = 0f;
+            GameObject go1 = Instantiate(_waveEnemies1[_waveCount]);
+            go1.transform.position = _generateMuzzles[0].position;
+            GameObject go2 = Instantiate(_waveEnemies2[_waveCount]);
+            go2.transform.position = _generateMuzzles[1].position;
+            GameObject go3 = Instantiate(_waveEnemies3[_waveCount]);
+            go3.transform.position = _generateMuzzles[2].position;
+            GameObject go4 = Instantiate(_waveEnemies4[_waveCount]);
+            go4.transform.position = _generateMuzzles[3].position;
+            _timer = 0f;
             _waveCount++;
         }
         else if (_waveCount == _bossWaveCount)
