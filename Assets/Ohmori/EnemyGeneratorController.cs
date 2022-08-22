@@ -22,8 +22,11 @@ public class EnemyGeneratorController : MonoBehaviour
 
     [Tooltip("ボスのプレハブ")]
     [SerializeField] GameObject _bossPrefab;
+    [Tooltip("ボスが生成するオブジェクト")]
+    [SerializeField] GameObject _soloEnemy;
     [Tooltip("Waveの間隔")]
     [SerializeField] float _interval = default;
+    GameObject _boss;
     int _waveCount = default;
     float _timer = default;
     void Start()
@@ -49,8 +52,17 @@ public class EnemyGeneratorController : MonoBehaviour
         }
         else if (_waveCount == _waveEnemies1.Count)
         {
-            GameObject go = Instantiate(_bossPrefab);
-            go.transform.position = _generateMuzzles[4].position;
+            _boss = Instantiate(_bossPrefab);
+            _boss.transform.position = _generateMuzzles[0].position;
+            _waveCount++;
+        }
+        else
+        {
+            if (_interval < _timer)
+            {
+                GameObject go = Instantiate(_bossPrefab);
+                go.transform.position = _boss.transform.position;
+            }
         }
         //Debug.Log(_currentEnemyCount);
     }
