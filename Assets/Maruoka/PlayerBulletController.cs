@@ -5,16 +5,11 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerBulletController : MonoBehaviour
 {
-    /// <summary>’e‚Ì”­ŽË•ûŒü</summary>
-    [SerializeField] Vector2 m_direction = Vector2.up;
     /// <summary>’e‚Ì”ò‚Ô‘¬“x</summary>
-    [SerializeField] float m_bulletSpeed = 10f;
-    Rigidbody2D m_rb;
+    [SerializeField] float _bulletSpeed = 10f;
    
     void Start()
     {
-        m_rb = GetComponent<Rigidbody2D>();
-        Vector3 v = m_direction.normalized * m_bulletSpeed; 
-        m_rb.velocity = v;
+        GetComponent<Rigidbody2D>().velocity = transform.up* _bulletSpeed;
     }
 }
