@@ -14,7 +14,7 @@ public class BossCotroller : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _matherShipTransform = GameObject.FindWithTag("MatherShip").transform;
+        _matherShipTransform = GameObject.FindWithTag("MotherShip").transform;
         _rb = GetComponent<Rigidbody2D>();
     }
 

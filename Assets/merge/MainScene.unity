@@ -552,22 +552,22 @@ MonoBehaviour:
   - {fileID: 2005538081}
   _waveEnemies1:
   - {fileID: 3665112762882675188, guid: 3ea5bb4972b23c94988a6fa25862dec0, type: 3}
-  - {fileID: 78395224477634091, guid: 8342d1fa3064e9140a1d58fefba2291f, type: 3}
-  - {fileID: 5779818512527783733, guid: 6a1acb233cf8c1a4981fb425e4e4766a, type: 3}
-  _waveEnemies2:
-  - {fileID: 78395224477634091, guid: 8342d1fa3064e9140a1d58fefba2291f, type: 3}
   - {fileID: 3665112762882675188, guid: 3ea5bb4972b23c94988a6fa25862dec0, type: 3}
-  - {fileID: 6994648221552682485, guid: 6c9f6bf8c5915d847908a7f0b5fc3fcf, type: 3}
-  _waveEnemies3:
+  - {fileID: 78395224477634091, guid: 8342d1fa3064e9140a1d58fefba2291f, type: 3}
+  _waveEnemies2:
   - {fileID: 5779818512527783733, guid: 6a1acb233cf8c1a4981fb425e4e4766a, type: 3}
   - {fileID: 6994648221552682485, guid: 6c9f6bf8c5915d847908a7f0b5fc3fcf, type: 3}
+  - {fileID: 5779818512527783733, guid: 6a1acb233cf8c1a4981fb425e4e4766a, type: 3}
+  _waveEnemies3:
+  - {fileID: 78395224477634091, guid: 8342d1fa3064e9140a1d58fefba2291f, type: 3}
+  - {fileID: 78395224477634091, guid: 8342d1fa3064e9140a1d58fefba2291f, type: 3}
   - {fileID: 3665112762882675188, guid: 3ea5bb4972b23c94988a6fa25862dec0, type: 3}
   _waveEnemies4:
-  - {fileID: 3665112762882675188, guid: 3ea5bb4972b23c94988a6fa25862dec0, type: 3}
-  - {fileID: 78395224477634091, guid: 8342d1fa3064e9140a1d58fefba2291f, type: 3}
+  - {fileID: 5779818512527783733, guid: 6a1acb233cf8c1a4981fb425e4e4766a, type: 3}
   - {fileID: 6994648221552682485, guid: 6c9f6bf8c5915d847908a7f0b5fc3fcf, type: 3}
-  _bossPrefab: {fileID: 0}
-  _interval: 0
+  - {fileID: 5779818512527783733, guid: 6a1acb233cf8c1a4981fb425e4e4766a, type: 3}
+  _bossPrefab: {fileID: 2657210165838852029, guid: 715137c24d6fb1e468374381db91ee1c, type: 3}
+  _interval: 3
 --- !u!4 &1033318572
 Transform:
   m_ObjectHideFlags: 0
