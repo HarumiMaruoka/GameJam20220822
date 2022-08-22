@@ -6,7 +6,7 @@ public class GuardController : MonoBehaviour
 {
     [Header("エネミーのタグの名前"), SerializeField] string _enemyTagName;
     [SerializeField] GameObject m_effectPrefab;
-    [SerializeField] GameObject m_enemyBulletPrefab = null;
+    [SerializeField] GameObject m_GuardBulletPrefab = null;
     float m_timer;
     [SerializeField] float m_fireInterval = 1f;
     [SerializeField] Transform[] m_muzzles = null;
@@ -23,7 +23,7 @@ public class GuardController : MonoBehaviour
     }
     private void Update()
     {
-        if (m_enemyBulletPrefab)
+        if (m_GuardBulletPrefab)
         {
             // 一定間隔で弾を発射する
             m_timer += Time.deltaTime;
@@ -34,7 +34,7 @@ public class GuardController : MonoBehaviour
                 // 各 muzzle から弾を発射する
                 foreach (Transform t in m_muzzles)
                 {
-                    Instantiate(m_enemyBulletPrefab, t.position, Quaternion.identity);
+                    Instantiate(m_GuardBulletPrefab, t.position, Quaternion.identity);
                 }
             }
         }
