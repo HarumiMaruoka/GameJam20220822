@@ -51,7 +51,7 @@ public class Enemy1Controller : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
-        else if (collision.gameObject.CompareTag("MatherShip"))
+        else if (collision.gameObject.CompareTag("MotherShip"))
         {
             Destroy(this.gameObject);
         }

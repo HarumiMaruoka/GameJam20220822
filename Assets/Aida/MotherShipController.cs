@@ -5,15 +5,22 @@ using UnityEngine;
 public class MotherShipController : MonoBehaviour
 {
     [Header("エネミーのタグの名前"), SerializeField] string _enemyTagName;
-    [SerializeField] GameObject m_effectPrefab;
+    [Header("マザーシップのヒットポイント"), SerializeField] int _hitPoint = 5;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         // Enemyと接触したときの処理
         if(collision.gameObject.tag == _enemyTagName)
         {
+            if (_hitPoint > 0)
+            {
+                _hitPoint--;
+            }
             //自身をデストロイする。
-            Destroy(this.gameObject);
+            else
+            {
+                Destroy(this.gameObject);
+            }
             Destroy(collision.gameObject);
         }
     }
