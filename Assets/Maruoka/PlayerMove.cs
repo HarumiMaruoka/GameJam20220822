@@ -7,9 +7,7 @@ public class PlayerMove : MonoBehaviour
 {
     [Header("プレイヤーのヒットポイント"), SerializeField] int _HP;
     [Header("プレイヤーの移動速度"), SerializeField] float _moveSpeed = 5f;
-    //自機の弾
     [SerializeField] GameObject _bulletPrefab = null;
-    //弾の発射位置
     [SerializeField] Transform _muzzle = null;
 
     Rigidbody2D _rigidbody2D;

@@ -24,6 +24,16 @@ public class Enemy1Controller : MonoBehaviour
     void Update()
     {
         _rb.velocity = (_targetTransform.position - transform.position).normalized * _moveSpeed;
+
+        if (_rb.velocity != Vector2.zero)
+        {
+            float rad = Mathf.Atan2(_rb.velocity.x, _rb.velocity.y) * -Mathf.Rad2Deg;
+
+            Vector3 angles = transform.localEulerAngles;
+            angles.z = rad;
+            transform.localEulerAngles = angles;
+        }
+
         if (_isMoveWave)
         {
 

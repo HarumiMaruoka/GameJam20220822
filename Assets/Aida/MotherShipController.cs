@@ -14,6 +14,7 @@ public class MotherShipController : MonoBehaviour
         {
             //自身をデストロイする。
             Destroy(this.gameObject);
+            Destroy(collision.gameObject);
         }
     }
 }
