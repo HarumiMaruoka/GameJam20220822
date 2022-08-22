@@ -26,6 +26,8 @@ public class EnemyGeneratorController : MonoBehaviour
     [SerializeField] GameObject _soloEnemy;
     [Tooltip("Waveの間隔")]
     [SerializeField] float _interval = default;
+    [Tooltip("Bossがエネミーを生み出す間隔")]
+    [SerializeField] float _bossInstanceInterval = default;
     GameObject _boss;
     int _waveCount = default;
     float _timer = default;
@@ -54,13 +56,13 @@ public class EnemyGeneratorController : MonoBehaviour
         {
             _boss = Instantiate(_bossPrefab);
             GameJudgement._setBoss = true;
-            GameJudgement._boss = Instantiate(_bossPrefab);
+            GameJudgement._boss = _boss;
             _boss.transform.position = _generateMuzzles[0].position;
             _waveCount++;
         }
         else
         {
-            if (_interval < _timer)
+            if (_bossInstanceInterval < _timer)
             {
                 GameObject go = Instantiate(_soloEnemy);
                 go.transform.position = _boss.transform.position;
