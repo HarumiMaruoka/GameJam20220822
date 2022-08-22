@@ -6,8 +6,8 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] int m_HP;
     [SerializeField] int m_enemyDamage;
-   //自機の速度
-   [SerializeField] float m_moveSpeed = 5f;
+    //自機の速度
+    [SerializeField] float m_moveSpeed = 5f;
     //自機の弾
     [SerializeField] GameObject m_bulletPrefab = null;
     //弾の発射位置
@@ -22,12 +22,12 @@ public class PlayerController : MonoBehaviour
         m_rb = GetComponent<Rigidbody2D>();
     }
 
-   
+
     void Update()
     {
-        float h = Input.GetAxisRaw("Horizontal");  
+        float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
-        Vector2 dir = new Vector2(h, v).normalized; 
+        Vector2 dir = new Vector2(h, v).normalized;
         m_rb.velocity = dir * m_moveSpeed;
         if (Input.GetButtonDown("Fire1"))
         {
@@ -51,13 +51,12 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "EnemyBullet")
         {
             m_HP -= m_enemyDamage;
-                // 爆発エフェクトを生成する
-                if (m_HP <= 0)
-                {
-                    GameObject go = Instantiate(m_explosionEffect);
-                    go.transform.position = this.transform.position;
-                }
-             Destroy(this.gameObject);   // 自分を破棄する
+            // 爆発エフェクトを生成する
+            if (m_HP <= 0)
+            {
+                Destroy(this.gameObject);   // 自分を破棄する
+                Instantiate(m_explosionEffect, this.transform.position, m_explosionEffect.transform.rotation);
             }
         }
     }
+}
