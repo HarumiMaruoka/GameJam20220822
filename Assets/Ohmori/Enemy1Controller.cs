@@ -45,17 +45,15 @@ public class Enemy1Controller : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             Destroy(collision.gameObject);
-            
+
         }
         else if (collision.gameObject.CompareTag("Bullet"))
         {
             Destroy(this.gameObject);
-            EnemyGeneratorController._currentEnemyCount--;
         }
         else if (collision.gameObject.CompareTag("MatherShip"))
         {
             Destroy(this.gameObject);
-            EnemyGeneratorController._currentEnemyCount--;
         }
     }
 }
