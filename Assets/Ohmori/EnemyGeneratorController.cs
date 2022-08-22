@@ -10,6 +10,8 @@ public class EnemyGeneratorController : MonoBehaviour
     /// <summary>Waveで出現させるPrefab</summary>
     [Tooltip("0からWave毎に出現させる")]
     [SerializeField] List<GameObject> _waveEnemies = new List<GameObject>();
+    [Tooltip("")]
+
     /// <summary>ボスを登場させるWave数</summary>
     [Tooltip("ボスを登場させるWave数")]
     [SerializeField] int _bossWaveCount = default;
