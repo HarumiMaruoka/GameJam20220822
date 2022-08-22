@@ -51,7 +51,7 @@ public class PlayerMove : MonoBehaviour
     void Fire1()
     {
         //“ü—Í‚ð”»’è
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButton("Fire1"))
         {
             Instantiate(_bulletPrefab, _muzzle.position, transform.rotation);
         }

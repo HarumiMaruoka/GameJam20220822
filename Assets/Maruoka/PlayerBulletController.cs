@@ -12,4 +12,12 @@ public class PlayerBulletController : MonoBehaviour
     {
         GetComponent<Rigidbody2D>().velocity = transform.up* _bulletSpeed;
     }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.tag == "GameZone")
+        {
+            Destroy(gameObject);
+        }
+    }
 }

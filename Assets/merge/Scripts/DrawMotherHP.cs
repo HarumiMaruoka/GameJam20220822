@@ -40,7 +40,10 @@ public class DrawMotherHP : MonoBehaviour
             {
                 for (int i = 0; i < Mathf.Abs(transform.childCount - _motherShipHitPoint._hitPoint); i++)
                 {
-                    Destroy(transform.GetChild(i).gameObject);
+                    if (transform.GetChild(i) != null)
+                    {
+                        Destroy(transform.GetChild(i).gameObject);
+                    }
                 }
             }
         }

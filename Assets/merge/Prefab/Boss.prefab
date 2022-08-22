@@ -147,4 +147,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _distance: 10
-  _moveSpeed: 10
+  _moveSpeed1: 50
+  _moveSpeed2: 5

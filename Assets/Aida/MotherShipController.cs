@@ -12,7 +12,7 @@ public class MotherShipController : MonoBehaviour
         // Enemy‚ÆÚG‚µ‚½‚Æ‚«‚Ìˆ—
         if(collision.gameObject.tag == _enemyTagName)
         {
-            if (_hitPoint > 0)
+            if (_hitPoint >= 0)
             {
                 _hitPoint--;
             }
