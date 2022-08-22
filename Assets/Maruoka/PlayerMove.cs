@@ -17,9 +17,6 @@ public class PlayerMove : MonoBehaviour
     float _inputH;
     float _inputV;
 
-    Quaternion _targetRotation;
-    [Header("‰ñ“]‘¬“x"), SerializeField] float _rotationSpeed;
-
     void Start()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
@@ -64,24 +61,6 @@ public class PlayerMove : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-
-    }
-
-    void test()
-    {
-        float inputV = Input.GetAxisRaw("Vertical");
-        float inputH = Input.GetAxisRaw("Horizontal");
-        Vector3 newVelocity = new Vector3(inputH, inputV, 0f).normalized;
-
-        // ˆÚ“®•ûŒü‚ðŒü‚­
-        if (newVelocity.magnitude > 0.5f)
-        {
-            _targetRotation = Quaternion.LookRotation(newVelocity, Vector3.up);
-        }
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, _targetRotation, _rotationSpeed * Time.deltaTime);
-
-        //‘¬“x‚ð—^‚¦‚é
-        _rigidbody2D.velocity = newVelocity * _moveSpeed + Vector3.up * _rigidbody2D.velocity.y;
 
     }
 }
