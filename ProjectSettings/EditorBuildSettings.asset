@@ -6,15 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/merge/Title.unity
-    guid: 02ca37dcb582b3a4f928c191652185a5
-  - enabled: 1
-    path: Assets/merge/ClearScene.unity
-    guid: 5afd3f47c3a905c48a30ea2bef7ee7ae
-  - enabled: 1
-    path: Assets/merge/GameOver.unity
-    guid: 0bb3a229ffaf7204b95be83687e533b1
+    path: Assets/Watanabe/Title.unity
+    guid: ab7ec9d59bd6d4c40a6802382605ffe9
   - enabled: 1
     path: Assets/merge/MainScene.unity
     guid: 3e056560713404e4b8ac6f4384692c18
+  - enabled: 1
+    path: Assets/Watanabe/ClearResult.unity
+    guid: 7783b1749a25ab846939cf2badc75493
+  - enabled: 1
+    path: Assets/Watanabe/FailedResult.unity
+    guid: 1368c11eb3f9d834aaecb5785028a9ed
   m_configObjects: {}

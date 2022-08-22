@@ -7,6 +7,7 @@ public class ChangeScene : MonoBehaviour
 {
     public void OnClickButton_ChangeScene(string sceneName)
     {
+        GameJudgement._setBoss = false;
         SceneManager.LoadScene(sceneName);
     }
 }

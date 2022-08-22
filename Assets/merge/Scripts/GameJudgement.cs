@@ -17,11 +17,11 @@ public class GameJudgement : MonoBehaviour
     {
         if (!_motherShip)
         {
-            SceneManager.LoadScene(_clearSceneName);
+            SceneManager.LoadScene(_gameOverSceneName);
         }
         if (_setBoss && !_boss)
         {
-            SceneManager.LoadScene(_gameOverSceneName);
+            SceneManager.LoadScene(_clearSceneName);
         }
     }
 }

@@ -11,6 +11,7 @@ public class BossCotroller : MonoBehaviour
     [Tooltip("移動速度")]
     [SerializeField] float _moveSpeed = default;
     Rigidbody2D _rb;
+    int _hitPoint=10;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,15 +22,30 @@ public class BossCotroller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Vector3.Distance(_matherShipTransform.position, this.transform.position) > _distance)
+        if (_matherShipTransform != null)
         {
-            _rb.velocity = (_matherShipTransform.position - transform.position).normalized * _moveSpeed;
+            if (Vector3.Distance(_matherShipTransform.position, this.transform.position) > _distance)
+            {
+                _rb.velocity = (_matherShipTransform.position - transform.position).normalized * _moveSpeed;
+            }
+            else if (Vector3.Distance(_matherShipTransform.position, this.transform.position) <= _distance)
+            {
+                //この関数は、第一引数は回転の中心、第二引数は回転軸、第三引数は移動速度
+                _rb.velocity = Vector2.zero;
+                transform.RotateAround(_matherShipTransform.position, new Vector3(0f, 0f, 1f), _moveSpeed * 30 * Time.deltaTime);
+            }
         }
-        else if (Vector3.Distance(_matherShipTransform.position, this.transform.position) <= _distance)
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Bullet")
         {
-            //この関数は、第一引数は回転の中心、第二引数は回転軸、第三引数は移動速度
-            _rb.velocity = Vector2.zero;
-            transform.RotateAround(_matherShipTransform.position, new Vector3(0f, 0f, 1f), _moveSpeed * 30 * Time.deltaTime);
+            _hitPoint--;
+            if (_hitPoint <= 0)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }
