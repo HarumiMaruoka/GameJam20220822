@@ -567,6 +567,7 @@ MonoBehaviour:
   - {fileID: 6994648221552682485, guid: 6c9f6bf8c5915d847908a7f0b5fc3fcf, type: 3}
   - {fileID: 5779818512527783733, guid: 6a1acb233cf8c1a4981fb425e4e4766a, type: 3}
   _bossPrefab: {fileID: 2657210165838852029, guid: 715137c24d6fb1e468374381db91ee1c, type: 3}
+  _soloEnemy: {fileID: 7598307317521315487, guid: 7282931071b20394e86b4b432298f306, type: 3}
   _interval: 3
 --- !u!4 &1033318572
 Transform:
@@ -632,6 +633,7 @@ GameObject:
   - component: {fileID: 1298519665}
   - component: {fileID: 1298519664}
   - component: {fileID: 1298519663}
+  - component: {fileID: 1298519667}
   m_Layer: 0
   m_Name: GameZone
   m_TagString: GameZone
@@ -787,6 +789,26 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 45}
   m_EdgeRadius: 0
+--- !u!114 &1298519667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1298519660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdb50b3c95c137544bf71600011b6df5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _motherShip: {fileID: 1305642734}
+  _clearSceneName: 
+  _gameOverSceneName: 
+--- !u!1 &1305642734 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6215395618169475170, guid: e092378170937ad449d2cd8208198b6e, type: 3}
+  m_PrefabInstance: {fileID: 1677907690}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1357123836
 GameObject:
   m_ObjectHideFlags: 0

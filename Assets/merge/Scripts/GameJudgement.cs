@@ -7,10 +7,11 @@ using UnityEngine.SceneManagement;
 public class GameJudgement : MonoBehaviour
 {
     [Header("守護対象"), SerializeField] GameObject _motherShip;
-    [Header("迎撃対象"), SerializeField] GameObject _boss;
+    static public GameObject _boss;
+    static public bool _setBoss = false;
 
-    [Header("迎撃対象"), SerializeField] string _clearSceneName;
-    [Header("迎撃対象"), SerializeField] string _gameOverSceneName;
+    [Header("clearシーンの名前"), SerializeField] string _clearSceneName;
+    [Header("gameoverシーンの名前"), SerializeField] string _gameOverSceneName;
 
     void Update()
     {
@@ -18,7 +19,7 @@ public class GameJudgement : MonoBehaviour
         {
             SceneManager.LoadScene(_clearSceneName);
         }
-        if (!_boss)
+        if (_setBoss && !_boss)
         {
             SceneManager.LoadScene(_gameOverSceneName);
         }

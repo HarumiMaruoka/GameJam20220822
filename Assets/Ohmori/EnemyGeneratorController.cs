@@ -53,6 +53,8 @@ public class EnemyGeneratorController : MonoBehaviour
         else if (_waveCount == _waveEnemies1.Count)
         {
             _boss = Instantiate(_bossPrefab);
+            GameJudgement._setBoss = true;
+            GameJudgement._boss = Instantiate(_bossPrefab);
             _boss.transform.position = _generateMuzzles[0].position;
             _waveCount++;
         }
@@ -60,7 +62,7 @@ public class EnemyGeneratorController : MonoBehaviour
         {
             if (_interval < _timer)
             {
-                GameObject go = Instantiate(_bossPrefab);
+                GameObject go = Instantiate(_soloEnemy);
                 go.transform.position = _boss.transform.position;
             }
         }
