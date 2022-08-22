@@ -10,12 +10,15 @@ public class EnemyGeneratorController : MonoBehaviour
     /// <summary>Waveで出現させるPrefab</summary>
     [Tooltip("0からWave毎に出現させる")]
     [SerializeField] List<GameObject> _waveEnemies = new List<GameObject>();
-
+    [Tooltip("ボスのプレハブ")]
+    [SerializeField] GameObject _bossPrefab;
     /// <summary>ボスを登場させるWave数</summary>
     [Tooltip("ボスを登場させるWave数")]
     [SerializeField] int _bossWaveCount = default;
+    [Tooltip("Waveの間隔")]
+    [SerializeField] float _distance = default;
     int _waveCount = default;
-    public static int _currentEnemyCount;
+    float _timer = default;
     void Start()
     {
 
@@ -23,15 +26,22 @@ public class EnemyGeneratorController : MonoBehaviour
 
     void Update()
     {
-        if (_waveCount >= 0 && _currentEnemyCount == 0)
+        _timer += Time.deltaTime;
+        if (_waveCount >= 0 && _waveCount < _bossWaveCount && _timer > _distance)
         {
             foreach (var Spown in _generateMuzzles)
             {
                 GameObject go = Instantiate(_waveEnemies[_waveCount]);
                 go.transform.position = Spown.position;
             }
-            _currentEnemyCount = GameObject.FindGameObjectsWithTag("Enemy").Length;
+            _distance = 0f;
+            _waveCount++;
         }
-        Debug.Log(_currentEnemyCount);
+        else if (_waveCount == _bossWaveCount)
+        {
+            GameObject go = Instantiate(_bossPrefab);
+            go.transform.position = _generateMuzzles[4].position;
+        }
+        //Debug.Log(_currentEnemyCount);
     }
 }
