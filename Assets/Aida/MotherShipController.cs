@@ -5,7 +5,7 @@ using UnityEngine;
 public class MotherShipController : MonoBehaviour
 {
     [Header("エネミーのタグの名前"), SerializeField] string _enemyTagName;
-    [Header("マザーシップのヒットポイント"), SerializeField] int _hitPoint = 5;
+    [Header("マザーシップのヒットポイント"), SerializeField] public int _hitPoint = 5;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

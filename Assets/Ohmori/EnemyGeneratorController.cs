@@ -10,16 +10,20 @@ public class EnemyGeneratorController : MonoBehaviour
     /// <summary>Waveで出現させるPrefab</summary>
     [Tooltip("Muzzle1で0からWave毎に出現させる")]
     [SerializeField] List<GameObject> _waveEnemies1 = new List<GameObject>();
+
     [Tooltip("Muzzle2で0からWave毎に出現させる")]
     [SerializeField] List<GameObject> _waveEnemies2 = new List<GameObject>();
+
     [Tooltip("Muzzle3で0からWave毎に出現させる")]
     [SerializeField] List<GameObject> _waveEnemies3 = new List<GameObject>();
+
     [Tooltip("Muzzle4で0からWave毎に出現させる")]
     [SerializeField] List<GameObject> _waveEnemies4 = new List<GameObject>();
+
     [Tooltip("ボスのプレハブ")]
     [SerializeField] GameObject _bossPrefab;
     [Tooltip("Waveの間隔")]
-    [SerializeField] float _distance = default;
+    [SerializeField] float _interval = default;
     int _waveCount = default;
     float _timer = default;
     void Start()
@@ -30,7 +34,7 @@ public class EnemyGeneratorController : MonoBehaviour
     void Update()
     {
         _timer += Time.deltaTime;
-        if (_waveCount >= 0 && _waveCount < _waveEnemies1.Count && _timer > _distance)
+        if (_waveCount >= 0 && _waveCount < _waveEnemies1.Count && _timer > _interval)
         {
             GameObject go1 = Instantiate(_waveEnemies1[_waveCount]);
             go1.transform.position = _generateMuzzles[0].position;
@@ -43,7 +47,7 @@ public class EnemyGeneratorController : MonoBehaviour
             _timer = 0f;
             _waveCount++;
         }
-        else if (_waveCount == _bossWaveCount)
+        else if (_waveCount == _waveEnemies1.Count)
         {
             GameObject go = Instantiate(_bossPrefab);
             go.transform.position = _generateMuzzles[4].position;
